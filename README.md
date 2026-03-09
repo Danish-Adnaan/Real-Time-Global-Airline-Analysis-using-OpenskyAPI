@@ -109,11 +109,3 @@ The function streams flight data with the following structure:
   "vertical_rate": "float"
 }
 ```
-
-## License
-
-MIT
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
