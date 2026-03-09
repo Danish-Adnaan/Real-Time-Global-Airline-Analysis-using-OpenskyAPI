@@ -9,32 +9,27 @@ This Azure Function ingests real-time flight data from OpenSky Network API and s
 <img width="1131" height="645" alt="image" src="https://github.com/user-attachments/assets/f7f91e5a-6c46-4420-9ff1-e908e4ca211e" />
 
 
-
 ## 🏗️ Architecture Overview
 
 ```mermaid
 flowchart LR
-    A[OpenSky Network API<br/>Live aircraft states<br/>~4 min cadence<br/>4000 credits/day] --> B[Python Ingestion<br/>-  opensky_client.py<br/>-  eventhub_connection.py<br/>-  countrylookup.py<br/>-  countries.geojson]
+    A[OpenSky Network API<br/>Live aircraft states<br/>~4 min cadence] --> B[Python Ingestion<br/>opensky_client.py<br/>eventhub_connection.py]
     
     J[Azure Function App<br/>Timer trigger<br/>Every 4 minutes] --> B
     
     B --> C[Fabric Eventstream<br/>Ingest endpoint]
-    C --> D[AirlineDestinationEventhouse<br/>Kusto database<br/>FlightsFlow_Live table]
+    C --> D[AirlineDestinationEventhouse<br/>Kusto database]
     
-    D --> E1[v_Flights_Current<br/>Materialized View<br/>Latest per icao24]
-    D --> E2[v_Flights_Current_Enriched<br/>Freshness filtering<br/>Phase/altitude bands]
-    D --> E3[v_Country_Traffic_Snapshot<br/>Current counts]
-    D --> E4[v_Airline_Traffic_Snapshot<br/>Current counts]
-    D --> E5[v_Country_Traffic_Time<br/>24h trends - 4m buckets]
-    D --> E6[v_Airline_Traffic_Time<br/>24h trends - 4m buckets]
+    D --> E1[v_Flights_Current<br/>Materialized View]
+    D --> E2[v_Flights_Current_Enriched<br/>Freshness filtering]
+    D --> E3[v_Country_Traffic_Snapshot]
+    D --> E4[v_Airline_Traffic_Snapshot]
     
-    E1 --> F[Power BI Semantic Model<br/>✅ DirectQuery: 6 live views<br/>✅ Import: Dim_Airline, Dim_Country<br/>✅ Star schema relationships]
+    E1 --> F[Power BI Semantic Model<br/>DirectQuery + Dimensions]
+    F --> G[Power BI Desktop<br/>DAX measures<br/>2 dashboard pages]
+    G --> H[Power BI Service<br/>Live demo]
     
-    F --> G[Power BI Desktop<br/>DAX measures<br/>Interactive visuals<br/>2 pages + slicers]
-    
-    G --> H[Power BI Service<br/>Live dashboard<br/>Fabric trial capacity]
-    
-    H --> I[Viewers<br/>Anyone w/ Microsoft account]
+    H --> I[Viewers]
 
     classDef api fill:#1f77b4,stroke:#4a90e2,color:#fff
     classDef python fill:#ff7f0e,stroke:#ffbb78,color:#fff
@@ -42,14 +37,13 @@ flowchart LR
     classDef fabric fill:#2ca02c,stroke:#7de27d,color:#fff
     classDef kql fill:#d62728,stroke:#ff9898,color:#fff
     classDef powerbi fill:#e377c2,stroke:#f7b6d2,color:#fff
-    classDef audience fill:#7f7f7f,stroke:#b8b8b8,color:#fff
     
     class A api
     class B,J python,azure
     class C,D fabric
-    class E1,E2,E3,E4,E5,E6 kql
+    class E1,E2,E3,E4 kql
     class F,G,H powerbi
-    class I audience
+    class I powerbi
 
 
 
