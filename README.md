@@ -11,7 +11,7 @@ This Azure Function ingests real-time flight data from OpenSky Network API and s
 
 ## Architecture 
 
-<img width="954" height="650" alt="image" src="https://github.com/user-attachments/assets/aec66b3b-403c-4091-b857-2984b0750584" />
+<img width="600" height="1000" alt="image" src="https://github.com/user-attachments/assets/aec66b3b-403c-4091-b857-2984b0750584" />
 
 
 
