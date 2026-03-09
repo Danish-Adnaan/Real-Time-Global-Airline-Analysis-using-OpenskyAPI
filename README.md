@@ -41,16 +41,6 @@ This Azure Function ingests real-time flight data from OpenSky Network API and s
 - `countries.geojson` - GeoJSON data for country boundaries
 - `requirements.txt` - Python dependencies
 
-## Deployment
-
-Deploy to Azure Functions using:
-
-```bash
-func azure functionapp publish <your-function-app-name>
-```
-
-Make sure to configure the application settings in Azure Portal with the same environment variables from `local.settings.json`.
-
 ## Data Schema
 
 The function streams flight data with the following structure:
