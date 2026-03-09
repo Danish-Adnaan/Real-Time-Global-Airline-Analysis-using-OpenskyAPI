@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "FABRIC_EVENTHUB_CONNECTION_STRING": "Endpoint=sb://YOUR_EVENTHUB_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=YOUR_KEY_NAME;SharedAccessKey=YOUR_KEY;EntityPath=YOUR_EVENTHUB_NAME",
+    "FABRIC_EVENTHUB_NAME": "YOUR_EVENTHUB_NAME",
+    "OPENSKY_CLIENT_ID": "your_opensky_username",
+    "OPENSKY_CLIENT_SECRET": "your_opensky_password"
+  }
+}
