@@ -2,6 +2,9 @@
 
 This Azure Function ingests real-time flight data from OpenSky Network API and streams it to an Azure Event Hub for processing in Microsoft Fabric.
 
+## 📹 Project Demo
+For a detailed walkthrough and video demonstration, please refer to my [LinkedIn post](https://www.linkedin.com/posts/danish-adnaan_powerbi-microsoftfabric-dataanalytics-ugcPost-7436833250179960832-1D_y?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjXFTwBZQlyyCr45vfer5Ujnh418a0uhBQ).
+
 
 <img width="1129" height="638" alt="image" src="https://github.com/user-attachments/assets/8ed4b2d1-a0a9-4295-ab1f-c93af2d6fd95" />
 
@@ -13,6 +16,7 @@ This Azure Function ingests real-time flight data from OpenSky Network API and s
 
 <img width="600" height="1000" alt="image" src="https://github.com/user-attachments/assets/aec66b3b-403c-4091-b857-2984b0750584" />
 
+[![LinkedIn Video](https://img.shields.io/badge/Watch%20Demo-LinkedIn-blue)](https://www.linkedin.com/posts/danish-adnaan_powerbi-microsoftfabric-dataanalytics-ugcPost-7436833250179960832-1D_y?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjXFTwBZQlyyCr45vfer5Ujnh418a0uhBQ)
 
 
 
